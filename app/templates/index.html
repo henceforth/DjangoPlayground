@@ -1,11 +1,6 @@
-<html>
-    <head>
-        <title>bla</title>
-    </head>
-
-    <body>
-        <h1>Index</h1>
-        <p>Content content content</p>
-        <p>currently {{ pics.count }} pictures</p>
-    </body>
-</html>
+{% extends 'base.html' %}
+{% block 'body' %}
+<h1>Index</h1>
+<p>Content content content</p>
+<p>currently {{ pics.count }} pictures</p>
+{% endblock %}

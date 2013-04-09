@@ -7,3 +7,9 @@ def index(request):
     pics = Picture.objects.all()
 
     return render(request, "index.html", Context({"pics": pics}))
+
+def add(request):
+    
+    return render(request, "add.html", Context())
+
+
