@@ -2,5 +2,11 @@
 {% block 'body' %}
 <h1>Index</h1>
 <p>Content content content</p>
+
+{% for pic in pics %}
+    <h3>{{ pic.name }}</h3>
+    <img src={{MEDIA_URL}}{{ pic.f }}>
+{% endfor %}
+
 <p>currently {{ pics.count }} pictures</p>
 {% endblock %}

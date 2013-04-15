@@ -1,5 +1,5 @@
 # Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from app.models import Picture, Comments
 from django.template import Context
 from django.forms import ModelForm
@@ -11,20 +11,21 @@ class FileForm(ModelForm):
 def index(request):
     pics = Picture.objects.all()
 
+
     return render(request, "index.html", Context({"pics": pics}))
 
 def add(request):
+    form_errors = None
     if request.method == 'POST':
         #form
-        f = FileForm(request.POST)
+        f = FileForm(request.POST, request.FILES)
         if f.is_valid():
             f.save()
-            return redirect("index")
+            return redirect("/index")
         else:
-            #todo: show errors, reload page
-            pass
+            form_errors = f.errors
 
     ff = FileForm()
-    return render(request, "add.html", Context({"form":ff}))
+    return render(request, "add.html", Context({"form":ff, "form_errors": form_errors}))
 
 
