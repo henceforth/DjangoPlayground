@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% block 'body' %}
 <h1>Add</h1>
-<p class="errors">
-    {{form_errors}}
-</p>
+{% if form_errors != None %}
+    <p class="errors">
+        {{form_errors}}
+    </p>
+{% endif %}
 <form action="/add/" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}

@@ -2,3 +2,4 @@ Session.vim
 *.pyc
 .*.swp
 /media
+*.db

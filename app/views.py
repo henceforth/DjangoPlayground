@@ -12,7 +12,7 @@ def index(request):
     pics = Picture.objects.all()
 
 
-    return render(request, "index.html", Context({"pics": pics}))
+    return render(request, "index.html", {"pics": pics})
 
 def add(request):
     form_errors = None

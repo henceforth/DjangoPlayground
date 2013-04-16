@@ -18,5 +18,6 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'app.views.index'),
     url(r'^index/$', 'app.views.index'),
-    url(r'^add/$', 'app.views.add')
+    url(r'^add/$', 'app.views.add'),
+    url(r'^static/(.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT})
 )+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
